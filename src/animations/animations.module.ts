@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AnimationsRoutingModule } from './animations-routing.module';
-import {AnimationsService} from "./animations.service";
 
 
 @NgModule({
@@ -12,7 +11,6 @@ import {AnimationsService} from "./animations.service";
     AnimationsRoutingModule
   ],
   exports: [
-    AnimationsService
   ]
 })
 export class AnimationsModule { }

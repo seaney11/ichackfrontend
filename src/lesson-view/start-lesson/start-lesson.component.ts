@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {AnimationsService} from '../../animations/animations.service';
-import {Animation} from '../../animations/animation.model';
 
 @Component({
   selector: 'app-start-lesson',
@@ -9,12 +7,11 @@ import {Animation} from '../../animations/animation.model';
 })
 export class StartLessonComponent implements OnInit {
 
-  animations: Animation[];
 
-  constructor(private animationService: AnimationsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.animations = this.animationService.getAnimations();
+    //this.animations = this.animationService.getAnimations();
   }
 
 }
