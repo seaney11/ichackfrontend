@@ -1,6 +1,33 @@
-<h1></h1>
-
-
-<h3>Transcript</h3>
-
-<p>{{transcript}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="row align-items-center">
+                <h3>Class sentiment</h3>
+                <br/>
+                <h3>{{sentiment}}</h3>
+                <br/>
+            </div>
+            <div class="row align-items-center">
+                <h3>Available animations</h3>
+                <br/>
+                <table class="table">
+                  <tbody>
+                  <tr *ngFor="let animation of animations; index as i" >
+                    <td>{{ animation.name }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <br/>
+            </div>
+            <div class="row align-items-center">
+                <h3>Join the class using this code:</h3>
+                <br/>
+                <h3>{{lesson.code}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <h3>Live Transcript</h3>
+            <p>{{transcript}}</p>
+        </div>
+    </div>
+</div>

@@ -16,4 +16,8 @@ export class LessonService {
   createLesson(lesson: Lesson): Observable<Lesson>{
     return this.http.post<Lesson>(this.lessonUrl, lesson);
   }
+
+  getLesson(id: number): Observable<Lesson>{
+    return this.http.get<Lesson>(this.lessonUrl+id+'/');
+  }
 }
