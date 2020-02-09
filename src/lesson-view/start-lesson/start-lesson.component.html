@@ -1,1 +1,17 @@
-<p>start-lesson works!</p>
+<h1>Start a Lesson</h1>
+<br/>
+
+<label>Lesson Name</label>
+<input type="text" [(ngModel)]="lessonName"/>
+
+<h3>Select Animations</h3>
+<br/>
+<table class="table">
+  <tbody>
+  <tr *ngFor="let animation of animations; index as i" (click)="toggleSelected(i)" [ngClass]="{'selected': selectedAnimations[i]}">
+    <td>{{ animation.name }}</td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<button class="btn btn-primary" (click)="startLesson()">Start Lesson</button>

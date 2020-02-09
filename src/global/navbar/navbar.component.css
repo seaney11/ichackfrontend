@@ -1,0 +1,12 @@
+nav{
+  margin: 10px;
+}
+
+.navbar-link{
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+a{
+  text-decoration: none;
+}

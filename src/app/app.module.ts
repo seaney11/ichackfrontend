@@ -7,6 +7,8 @@ import {GlobalModule} from '../global/global.module';
 import {DashboardModule} from '../dashboard/dashboard.module';
 import {LessonViewModule} from '../lesson-view/lesson-view.module';
 import {AnimationsModule} from '../animations/animations.module';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {AnimationsModule} from '../animations/animations.module';
     GlobalModule,
     DashboardModule,
     LessonViewModule,
-    AnimationsModule
+    AnimationsModule,
+    NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

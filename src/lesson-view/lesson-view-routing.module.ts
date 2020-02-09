@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LessionViewComponent} from "./lession-view/lession-view.component";
+import {LessonViewComponent} from "./lesson-view/lesson-view.component";
 import {StartLessonComponent} from "./start-lesson/start-lesson.component";
 
 
-const routes: Routes = [{path: 'lesson-view', component: LessionViewComponent},
+const routes: Routes = [{path: 'lesson-view/:id', component: LessonViewComponent},
   {path: 'start-lesson', component: StartLessonComponent}];
 
 @NgModule({
