@@ -1,5 +1,10 @@
 tr.selected{
-  background: #ffd166BB;
+  background: #007bff;
+  color: white;
+}
+
+tr{
+  color: black;
 }
 
 tr:hover{

@@ -28,6 +28,7 @@
     "fs": "0.0.1-security",
     "rxjs": "~6.5.4",
     "socket.io": "^2.3.0",
+    "three-full": "^17.1.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
