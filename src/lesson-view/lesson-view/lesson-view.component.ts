@@ -18,44 +18,51 @@ export class LessonViewComponent implements OnInit {
   public readonly MIC_PORT: number = 5500;
   ws: any;
   lesson: Lesson;
-  micStatus: string;
-  sentiment_module: Mareki
-  sentiment : string
+  sentiment: string;
 
   transcript: string;
 
   constructor(private lessonService: LessonService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private animationService: AnimationService) {
     this.transcript = '';
     this.sentiment = '';
   }
 
   ngOnInit(): void {
-    this.ws = new WebSocket("ws://localhost:9001/");
+    this.ws = new WebSocket('ws://localhost:9001/');
 
     // Set event handlers.
     this.ws.onopen = () => {
-      console.log("boom motherfuckers");
+      console.log('boom motherfuckers');
     };
 
     this.ws.onmessage = (e) => {
-      if (e.data[0] != '0' ){
+      console.log(e.data);
+      if (e.data.charAt(0) !== '0' ) {
           this.transcript += e.data;
-        }
-      else{
+        } else {
           this.sentiment = e.data.substr(1);
       }
     };
 
     this.ws.onclose =  () => {
-      console.log("closed");
+      console.log('closed');
     };
     this.activatedRoute.params.subscribe(params => {
-        console.log(params);
-        const id = params['id'];
-        console.log(params);
-          this.lessonService.getLesson(id).subscribe((res) => {
+        const id = params.id;
+        this.lessonService.getLesson(id).subscribe((res) => {
             this.lesson = res;
+            console.log(this.lesson.animations);
+            this.animationService.getAnimations().subscribe((r) => {
+              this.animations = [];
+              console.log(r);
+              for (const a of r) {
+                if (this.lesson.animations.includes(a.id)) {
+                  this.animations.push(a);
+                }
+              }
+            });
           });
       });
   }
