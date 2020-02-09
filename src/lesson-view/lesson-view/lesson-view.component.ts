@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import * as SocketIO from "socket.io";
+import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 
 @Component({
   selector: 'app-lession-view',
@@ -9,15 +9,32 @@ import * as SocketIO from "socket.io";
 export class LessonViewComponent implements OnInit {
 
   public readonly MIC_PORT: number = 5500;
-  private micServer: SocketIO.Server;
-
+  ws: any;
 
   micStatus: string;
 
+  transcript: string;
+
   constructor() {
+    this.transcript = '';
   }
 
   ngOnInit(): void {
+    this.ws = new WebSocket("ws://localhost:9001/");
+
+    // Set event handlers.
+    this.ws.onopen = () => {
+      console.log("boom motherfuckers");
+    };
+
+    this.ws.onmessage = (e) => {
+      this.transcript += e.data;
+    };
+
+    this.ws.onclose =  () => {
+      console.log("closed");
+    };
+
   }
 
 }
